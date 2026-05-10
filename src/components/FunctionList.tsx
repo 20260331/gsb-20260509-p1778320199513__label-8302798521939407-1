@@ -5,9 +5,11 @@ interface FunctionListProps {
   functions: ExcelFunction[];
   selectedFunction: ExcelFunction | null;
   onSelectFunction: (func: ExcelFunction) => void;
+  favorites: Set<string>;
+  onToggleFavorite: (funcId: string) => void;
 }
 
-export default function FunctionList({ functions, selectedFunction, onSelectFunction }: FunctionListProps) {
+export default function FunctionList({ functions, selectedFunction, onSelectFunction, favorites, onToggleFavorite }: FunctionListProps) {
   return (
     <div className="function-list">
       <div className="function-list-header">
@@ -29,7 +31,19 @@ export default function FunctionList({ functions, selectedFunction, onSelectFunc
             >
               <div className="function-item-header">
                 <h3 className="function-name">{func.name}</h3>
-                <span className="function-category">{func.category}</span>
+                <div className="function-item-header-right">
+                  <button
+                    className={`favorite-btn ${favorites.has(func.id) ? 'favorited' : ''}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onToggleFavorite(func.id);
+                    }}
+                    title={favorites.has(func.id) ? '取消收藏' : '收藏'}
+                  >
+                    {favorites.has(func.id) ? '★' : '☆'}
+                  </button>
+                  <span className="function-category">{func.category}</span>
+                </div>
               </div>
               <p className="function-description">{func.description}</p>
               <div className="function-meta">
