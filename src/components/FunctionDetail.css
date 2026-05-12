@@ -1,0 +1,279 @@
+.function-detail {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+
+.function-detail.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-light);
+}
+
+.empty-state h2 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--border);
+}
+
+.detail-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.detail-category {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--bg);
+  color: var(--text-light);
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.close-btn {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background: var(--border);
+}
+
+.detail-section {
+  margin-bottom: 32px;
+}
+
+.detail-section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.detail-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.syntax-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f8fafc;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.syntax-code {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primary);
+  background: transparent;
+  padding: 0;
+}
+
+.copy-btn {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+}
+
+.copy-btn:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.copy-btn.small {
+  padding: 4px;
+}
+
+.parameters-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.parameter-item {
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+}
+
+.parameter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.parameter-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary);
+  background: transparent;
+  padding: 0;
+}
+
+.parameter-type {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.parameter-type.required {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.parameter-type.optional {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.parameter-description {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.examples-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.example-item {
+  padding: 20px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.example-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.example-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.example-formula {
+  background: white;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+}
+
+.example-formula code {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--primary);
+  background: transparent;
+  padding: 0;
+}
+
+.example-result {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  background: #dbeafe;
+  border-radius: 6px;
+}
+
+.result-label {
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.result-value {
+  font-weight: 600;
+  color: #1e3a8a;
+  font-size: 16px;
+}
+
+.example-explanation {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.6;
+  padding-left: 4px;
+}
+
+.tips-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tip-item {
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  background: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #92400e;
+  line-height: 1.6;
+}
+
+.tip-item::before {
+  content: "💡 ";
+  margin-right: 4px;
+}
+
+@media (max-width: 768px) {
+  .detail-title {
+    font-size: 24px;
+  }
+  
+  .syntax-code {
+    font-size: 14px;
+  }
+}
