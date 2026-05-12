@@ -7,10 +7,23 @@ import './FunctionDetail.css';
 interface FunctionDetailProps {
   function: ExcelFunction | null;
   onClose: () => void;
+  showEmptyFavoritesHint?: boolean;
 }
 
-export default function FunctionDetail({ function: func, onClose }: FunctionDetailProps) {
+export default function FunctionDetail({ function: func, onClose, showEmptyFavoritesHint }: FunctionDetailProps) {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+
+  if (showEmptyFavoritesHint) {
+    return (
+      <div className="function-detail empty">
+        <div className="empty-state">
+          <h2>⭐ 还没有收藏任何函数</h2>
+          <p>先去收藏一些常用函数吧，点击函数卡片上的 ☆ 按钮即可收藏</p>
+          <p className="empty-hint">收藏后可以在这里快速访问它们</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!func) {
     return (

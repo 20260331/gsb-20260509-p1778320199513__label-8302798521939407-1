@@ -65,10 +65,40 @@
   margin-bottom: 8px;
 }
 
+.function-name-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .function-name {
   font-size: 18px;
   font-weight: 600;
   color: var(--primary);
+}
+
+.favorite-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favorite-btn:hover {
+  background: var(--bg);
+  transform: scale(1.1);
+}
+
+.favorite-btn.active {
+  color: #fbbf24;
+  text-shadow: 0 0 4px rgba(251, 191, 36, 0.5);
 }
 
 .function-category {
