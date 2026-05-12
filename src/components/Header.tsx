@@ -7,9 +7,11 @@ interface HeaderProps {
   onSearchChange: (query: string) => void;
   selectedCategory: string;
   onCategoryChange: (category: string) => void;
+  showFavoritesOnly: boolean;
+  onToggleFavoritesOnly: (show: boolean) => void;
 }
 
-export default function Header({ searchQuery, onSearchChange, selectedCategory, onCategoryChange }: HeaderProps) {
+export default function Header({ searchQuery, onSearchChange, selectedCategory, onCategoryChange, showFavoritesOnly, onToggleFavoritesOnly }: HeaderProps) {
   return (
     <header className="header">
       <div className="header-content">
@@ -29,18 +31,31 @@ export default function Header({ searchQuery, onSearchChange, selectedCategory, 
             />
           </div>
         </div>
-        <div className="category-filters">
-          {categories.map(cat => (
-            <button
-              key={cat.id}
-              className={`category-btn ${selectedCategory === cat.id ? 'active' : ''}`}
-              onClick={() => onCategoryChange(cat.id)}
-              style={{ '--category-color': cat.color } as React.CSSProperties}
-            >
-              <span>{cat.icon}</span>
-              <span>{cat.name}</span>
-            </button>
-          ))}
+        <div className="header-filters">
+          <div className="category-filters">
+            {categories.map(cat => (
+              <button
+                key={cat.id}
+                className={`category-btn ${selectedCategory === cat.id ? 'active' : ''}`}
+                onClick={() => onCategoryChange(cat.id)}
+                style={{ '--category-color': cat.color } as React.CSSProperties}
+              >
+                <span>{cat.icon}</span>
+                <span>{cat.name}</span>
+              </button>
+            ))}
+          </div>
+          <label className="favorites-toggle">
+            <span className="favorites-toggle-label">☆ 只看收藏</span>
+            <div className={`toggle-switch ${showFavoritesOnly ? 'on' : ''}`}>
+              <input
+                type="checkbox"
+                checked={showFavoritesOnly}
+                onChange={(e) => onToggleFavoritesOnly(e.target.checked)}
+              />
+              <span className="toggle-slider" />
+            </div>
+          </label>
         </div>
       </div>
     </header>
