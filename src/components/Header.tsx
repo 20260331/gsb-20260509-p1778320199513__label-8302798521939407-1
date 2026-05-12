@@ -7,9 +7,11 @@ interface HeaderProps {
   onSearchChange: (query: string) => void;
   selectedCategory: string;
   onCategoryChange: (category: string) => void;
+  showFavoritesOnly: boolean;
+  onShowFavoritesChange: (show: boolean) => void;
 }
 
-export default function Header({ searchQuery, onSearchChange, selectedCategory, onCategoryChange }: HeaderProps) {
+export default function Header({ searchQuery, onSearchChange, selectedCategory, onCategoryChange, showFavoritesOnly, onShowFavoritesChange }: HeaderProps) {
   return (
     <header className="header">
       <div className="header-content">
@@ -29,18 +31,30 @@ export default function Header({ searchQuery, onSearchChange, selectedCategory, 
             />
           </div>
         </div>
-        <div className="category-filters">
-          {categories.map(cat => (
-            <button
-              key={cat.id}
-              className={`category-btn ${selectedCategory === cat.id ? 'active' : ''}`}
-              onClick={() => onCategoryChange(cat.id)}
-              style={{ '--category-color': cat.color } as React.CSSProperties}
-            >
-              <span>{cat.icon}</span>
-              <span>{cat.name}</span>
-            </button>
-          ))}
+        <div className="filters-row">
+          <div className="category-filters">
+            {categories.map(cat => (
+              <button
+                key={cat.id}
+                className={`category-btn ${selectedCategory === cat.id ? 'active' : ''}`}
+                onClick={() => onCategoryChange(cat.id)}
+                style={{ '--category-color': cat.color } as React.CSSProperties}
+              >
+                <span>{cat.icon}</span>
+                <span>{cat.name}</span>
+              </button>
+            ))}
+          </div>
+          <label className="favorites-toggle">
+            <input
+              type="checkbox"
+              checked={showFavoritesOnly}
+              onChange={(e) => onShowFavoritesChange(e.target.checked)}
+              className="favorites-checkbox"
+            />
+            <span className="favorites-icon">★</span>
+            <span className="favorites-label">只显示收藏</span>
+          </label>
         </div>
       </div>
     </header>
